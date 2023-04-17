@@ -24,19 +24,4 @@ export const ROUTER = [
     path: "/profile",
     permissions: ["admin", "user"],
   },
-  {
-    name: "login",
-    path: "/login",
-    permissions: ["admin", "user"],
-  },
-  {
-    name: "signup",
-    path: "/signup",
-    permissions: ["admin", "user"],
-  },
-  {
-    name: "update-profile",
-    path: "/update-profile",
-    permissions: ["admin", "user"],
-  },
 ];
