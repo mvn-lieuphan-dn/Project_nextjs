@@ -1,0 +1,448 @@
+// @import "./variables";
+// @import "./color";
+
+// .noSelect {
+//   -webkit-touch-callout: none; /* iOS Safari */
+//   -webkit-user-select: none; /* Safari */
+//   -khtml-user-select: none; /* Konqueror HTML */
+//   -moz-user-select: none; /* Old versions of Firefox */
+//   -ms-user-select: none; /* Internet Explorer/Edge */
+//   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+// }
+
+// .lineHeightInitial {
+//   line-height: initial !important;
+// }
+// .lineHeight0 {
+//   line-height: 0 !important;
+// }
+
+// .hAuto {
+//   height: auto;
+// }
+
+// .wAuto {
+//   width: auto;
+// }
+
+// .h100 {
+//   height: 100%;
+// }
+
+// .h0 {
+//   height: 0;
+// }
+
+// .w100 {
+//   width: 100%;
+// }
+
+// .flex1 {
+//   flex: 1;
+// }
+
+// .flexColumn {
+//   flex-direction: column;
+// }
+
+// .flexNoWrap {
+//   flex-wrap: nowrap;
+// }
+
+// .whiteSpaceNoWrap {
+//   white-space: nowrap;
+// }
+
+// .wordBreak {
+//   word-break: break-word;
+// }
+
+// .flexAlignCenter {
+//   align-items: center;
+// }
+
+// .flexJustifyCenter {
+//   justify-content: center;
+// }
+
+// // Fonts
+// $font-size-list: 10, 12, 14, 16, 18, 20, 22, 24, 32, 40;
+// @each $size in $font-size-list {
+//   .font#{$size} {
+//     font-size: #{$size}px !important;
+//   }
+// }
+
+// // Text Aligns
+// .textCenter {
+//   text-align: center;
+// }
+// .textRight {
+//   text-align: right;
+// }
+
+// // Font weight
+// .textNormal {
+//   font-weight: normal;
+// }
+
+// .textBold {
+//   font-weight: bold;
+// }
+
+// //Borders
+// .noBorder {
+//   border: none !important;
+// }
+
+// // Spaces
+// $spaces: (
+//   "0": $spacing-0,
+//   "1": $spacing-1,
+//   "2": $spacing-2,
+//   "3": $spacing-3,
+//   "4": $spacing-4,
+//   "5": $spacing-5,
+//   "6": $spacing-6,
+//   "7": $spacing-7,
+//   "8": $spacing-8,
+//   "9": $spacing-9,
+//   "10": $spacing-10,
+//   "Auto": "auto",
+// );
+
+// // Margins
+// @each $key, $value in $spaces {
+//   .m#{$key} {
+//     margin: #{$value} !important;
+//   }
+
+//   .mt#{$key} {
+//     margin-top: #{$value} !important;
+//   }
+
+//   .mr#{$key} {
+//     margin-right: #{$value} !important;
+//   }
+
+//   .mb#{$key} {
+//     margin-bottom: #{$value} !important;
+//   }
+
+//   .ml#{$key} {
+//     margin-left: #{$value} !important;
+//   }
+
+//   .mv#{$key} {
+//     margin-top: #{$value} !important;
+//     margin-bottom: #{$value} !important;
+//   }
+
+//   .mh#{$key} {
+//     margin-left: #{$value} !important;
+//     margin-right: #{$value} !important;
+//   }
+// }
+
+// // Paddings
+// @each $key, $value in $spaces {
+//   .p#{$key} {
+//     padding: #{$value} !important;
+//   }
+
+//   .pt#{$key} {
+//     padding-top: #{$value} !important;
+//   }
+
+//   .pr#{$key} {
+//     padding-right: #{$value} !important;
+//   }
+
+//   .pb#{$key} {
+//     padding-bottom: #{$value} !important;
+//   }
+
+//   .pl#{$key} {
+//     padding-left: #{$value} !important;
+//   }
+
+//   .pv#{$key} {
+//     padding-top: #{$value} !important;
+//     padding-bottom: #{$value} !important;
+//   }
+
+//   .ph#{$key} {
+//     padding-left: #{$value} !important;
+//     padding-right: #{$value} !important;
+//   }
+// }
+
+// // Paddings
+// .minW100 {
+//   min-width: 100px;
+// }
+
+// /* Colors */
+// $colors: (
+//   "Dark100": $dark-100,
+//   "Dark87": $dark-87,
+//   "Dark54": $dark-54,
+//   "Dark39": $dark-39,
+//   "Dark26": $dark-26,
+//   "Dark12": $dark-12,
+//   "White": white,
+//   "Active": $active,
+//   "SystemRed": $system-red,
+//   "Link": $link,
+// );
+
+// // Background
+// @each $key, $value in $colors {
+//   .bg#{$key} {
+//     background-color: #{$value};
+//   }
+// }
+
+// // Text colors
+// @each $key, $value in $colors {
+//   .text#{$key} {
+//     color: #{$value} !important;
+//   }
+// }
+
+// // Display
+// .dNone {
+//   display: none !important;
+// }
+// .dFlex {
+//   display: flex !important;
+// }
+// .dInlineFlex {
+//   display: inline-flex !important;
+// }
+
+// // Cursor
+// .cursorPointer {
+//   cursor: pointer;
+// }
+
+// .noShrink {
+//   flex-shrink: 0;
+// }
+
+// // Button with icon
+// .iconBtn {
+//   display: flex;
+//   align-items: center;
+//   :global {
+//     svg {
+//       margin-right: $spacing-2;
+//     }
+//   }
+// }
+
+// // Table overflow shadow
+// .extendOverflowShadow {
+//   :global {
+//     .ant-table .ant-table-container::before,
+//     .ant-table .ant-table-container::after {
+//       top: -25px;
+//     }
+//   }
+// }
+
+// // Column widths
+// @media (min-width: $screen-lg) {
+//   .columnWidthSm {
+//     min-width: 128px;
+//     &:first-child,
+//     &:last-child {
+//       min-width: 140px;
+//     }
+//   }
+//   .columnWidthMd {
+//     min-width: 280px;
+//     &:first-child,
+//     &:last-child {
+//       min-width: 292px;
+//     }
+//   }
+//   .columnWidthLg {
+//     min-width: 560px;
+//     &:first-child,
+//     &:last-child {
+//       min-width: 572px;
+//     }
+//   }
+// }
+
+// // Detail data
+// .detailData {
+//   margin-bottom: $spacing-6;
+//   :global {
+//     .ant-card-body,
+//     .ant-card-body > div:not(.ant-card-loading-content) {
+//       > h3.ant-typography {
+//         margin-bottom: 0;
+//       }
+//       > .ant-row {
+//         padding: $spacing-2 $spacing-2 $spacing-1;
+//         line-height: $font-size-24;
+//         font-size: $font-size-16;
+//         flex-wrap: nowrap;
+//         > .ant-col:nth-child(2):last-child,
+//         > .ant-typography:nth-child(2):last-child {
+//           margin-left: $spacing-7;
+//           flex-grow: 1;
+//           display: flex;
+//           align-items: center;
+//           justify-content: flex-end;
+//           text-align: right;
+//         }
+//       }
+//       > .ant-divider {
+//         margin-top: 0;
+//         margin-bottom: 0;
+//         border-top-width: 2px;
+//       }
+//     }
+//   }
+// }
+
+// // Add list
+// .addList {
+//   :global {
+//     .ant-list-item {
+//       border: 1px solid $dark-9;
+//       padding: $spacing-2 $spacing-2 $spacing-2 $spacing-4;
+//       line-height: 1.25em;
+//       margin-bottom: $spacing-4;
+//       .ant-btn {
+//         font-size: $font-size-14;
+//         line-height: 26px;
+//         svg {
+//           width: 24px;
+//           height: 24px;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// // Short input
+// .inputShort {
+//   width: 200px;
+// }
+
+// .noLabelItem {
+//   padding-top: 23px;
+// }
+
+// // Row with link
+// .rowLink {
+//   cursor: pointer;
+//   transition: background 0.3s;
+//   &:hover {
+//     background-color: $dark-26;
+//   }
+// }
+
+// // Country code select
+// .countryCode {
+//   display: flex;
+//   :global {
+//     .ant-form-item {
+//       &:nth-last-child(2) {
+//         width: 110px;
+//         margin-right: $spacing-2;
+//         .ant-form-item-control {
+//           margin-top: 1px;
+//           .ant-form-item-control {
+//             margin-top: inherit;
+//           }
+//         }
+//       }
+//       &:nth-child(2) {
+//         flex: 1;
+//       }
+//     }
+//   }
+// }
+
+// // QR code reader
+// .qrCodeReader {
+//   background: $dark-9;
+//   max-height: 480px;
+//   max-width: 1248px;
+//   margin: 0 auto;
+//   overflow: hidden;
+//   :global {
+//     section {
+//       display: flex;
+//       max-height: 480px;
+//       > div {
+//         box-shadow: none !important;
+//         border: none !important;
+//         background: transparent !important;
+//         max-height: 480px;
+//       }
+//       video {
+//         max-height: 480px;
+//       }
+//     }
+//   }
+// }
+
+// @media (max-width: $screen-lg-max) {
+//   .detailData {
+//     :global {
+//       .ant-card-body {
+//         > .ant-row {
+//           > .ant-col:nth-child(2):last-child,
+//           > .ant-typography:nth-child(2):last-child {
+//             margin-left: $spacing-4;
+//           }
+//         }
+//       }
+//     }
+//   }
+//   .qrCodeReader {
+//     max-height: calc(100vw - 446px);
+//     height: calc(100vw - 446px);
+//     min-height: 160px;
+//     :global {
+//       section {
+//         max-height: calc(100vw - 446px);
+//         height: calc(100vw - 446px);
+//         min-height: 160px;
+//         > div,
+//         video {
+//           max-height: calc(100vw - 446px);
+//           height: calc(100vw - 446px);
+//           min-height: 160px;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// // Responsive
+// @media (min-width: $screen-lg) {
+//   .hidePC {
+//     display: none;
+//   }
+// }
+
+// @media (max-width: $screen-lg-max) {
+//   .hideSP {
+//     display: none;
+//   }
+// }
+
+// /* Positions */
+// $positions: "Static", "Relative", "Absolute", "Fixed", "Sticky";
+// @each $position in $positions {
+//   .position#{$position} {
+//     position: #{to-lower-case(#{$position})} !important;
+//   }
+// }
