@@ -12,8 +12,8 @@ export default function useAuth() {
     () => (isWindow ? !!localStorage.getItem("user") : false),
     [isWindow]
   );
-  const currentUser: Users | null = useMemo(
-    () => JSON.parse(localStorage.getItem("user")) || null,
+  const currentUser = useMemo(
+    () => JSON.parse(localStorage?.getItem("user") as string) || null,
     [isWindow]
   );
 

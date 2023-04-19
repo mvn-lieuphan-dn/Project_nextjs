@@ -16,9 +16,11 @@ function MainLayout({ children }: MainLayoutProps) {
   const router = useRouter();
 
   const currentRouter = ROUTER.find((r) => r.path === router?.pathname);
+
   useEffect(() => {
     if (!currentRouter?.permissions.includes(currentUser?.position)) {
-      router.push("/");
+      setIsLoading(false);
+      // router.push("/");
     } else {
       setIsLoading(false);
     }

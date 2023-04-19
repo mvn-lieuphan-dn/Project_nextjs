@@ -1,0 +1,79 @@
+@use "sass:math";
+
+:root {
+  --speed: 30s;
+  --orbit-play-state: running;
+}
+
+.page-demo {
+  font-family: system-ui;
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  ul {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: grid;
+    place-items: center;
+    animation: orbit var(--speed) linear infinite; //  alo
+    &:hover {
+      animation-play-state: paused;
+      --orbit-play-state: paused;
+    }
+  }
+
+  li {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    width: 7rem;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    background-color: darkblue;
+    & > * {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      border-radius: inherit;
+      animation: orbit var(--speed) linear reverse infinite;
+      animation-play-state: var(--orbit-play-state);
+    }
+
+    &:hover {
+      p {
+        opacity: 1;
+      }
+    }
+
+    i {
+      font-size: 2rem;
+    }
+
+    p {
+      text-align: center;
+      font-weight: 500;
+      line-height: 1;
+      color: #fff;
+      //   opacity: 0;
+      //   transition: opacity;
+    }
+  }
+
+  @for $counter from 0 through 4 {
+    li:nth-child(#{$counter + 1}) {
+      transform: translate(
+        15rem * math.cos(72deg * $counter),
+        15rem * math.sin(72deg * $counter)
+      );
+    }
+  }
+  @keyframes orbit {
+    100% {
+      rotate: 1turn;
+    }
+  }
+}

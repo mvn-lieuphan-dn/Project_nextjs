@@ -16,7 +16,6 @@ const permission = [
 
 export default function UpdateProfiles() {
   const handleSubmit = (values: string) => {
-    // updateUser(values);
     console.log(values);
   };
 

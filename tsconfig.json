@@ -18,7 +18,8 @@
     "paths": {
       "@app/*": ["./*"],
       "@layouts/*": ["components/layouts/*"],
-      "@fb/*": ["fb/*"]
+      "@fb/*": ["fb/*"],
+      "@api/*": ["api/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

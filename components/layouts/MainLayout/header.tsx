@@ -1,4 +1,4 @@
-import { Menu } from "antd";
+import { Menu, Col, Row } from "antd";
 import type { MenuProps } from "antd";
 import {
   ProfileOutlined,
@@ -9,6 +9,8 @@ import {
 } from "@ant-design/icons";
 import useAuth from "@app/hooks/useAuth";
 import Link from "next/link";
+import Logo from "@app/assets/images/logo.png";
+import Image from "next/image";
 
 export default function Header() {
   const { isLogged, logout } = useAuth();
@@ -42,8 +44,17 @@ export default function Header() {
     },
   ];
   return (
-    <header>
-      <Menu mode="horizontal" className="container" items={items} />
+    <header className="container d-flex">
+      <Row>
+        <Col span={16}>
+          <Link href="/">
+            <Image src={Logo} className="img-logo" alt="logo" />
+          </Link>
+        </Col>
+        <Col span={8}>
+          <Menu mode="horizontal" items={items} />
+        </Col>
+      </Row>
     </header>
   );
 }

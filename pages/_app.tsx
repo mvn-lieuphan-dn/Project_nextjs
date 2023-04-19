@@ -13,9 +13,6 @@ export default function App({ Component, pageProps }: AppProps) {
     <AuthContextProvider>
       <QueryClientProvider client={queryClient}>
         <PrivateRouter Component={Component} pageProps={pageProps} />
-        {/* <Component {...pageProps} />
-          <ReactQueryDevtools initialIsOpen /> */}
-        {/* </PrivateRouter> */}
       </QueryClientProvider>
     </AuthContextProvider>
   );
