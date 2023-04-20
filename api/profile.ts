@@ -1,4 +1,4 @@
-import { api } from "@api/api";
+import { api } from "./api";
 import { Employees } from "@app/model/Employees.model";
 export function getEmployees() {
   return api
