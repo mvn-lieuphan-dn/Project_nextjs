@@ -52,7 +52,11 @@ export default function Header() {
           </Link>
         </Col>
         <Col span={8}>
-          <Menu mode="horizontal" items={items} />
+          <Menu
+            mode="horizontal"
+            items={items}
+            className="justify-content-end"
+          />
         </Col>
       </Row>
     </header>

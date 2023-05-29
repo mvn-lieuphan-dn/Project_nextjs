@@ -43,6 +43,18 @@ export default function UpdateProfiles() {
           <Radio.Group options={permission} />
         </Form.Item>
         <Form.Item
+          label="image"
+          name="image"
+          rules={[
+            {
+              required: true,
+              message: "Please input your permission!",
+            },
+          ]}
+        >
+          <input type="file" />
+        </Form.Item>
+        <Form.Item
           wrapperCol={{
             offset: 8,
             span: 16,

@@ -1,0 +1,13 @@
+.auth-page {
+  // background: linear-gradient(
+  //   130deg,
+  //   rgb(237 141 156 / 50%) 20%,
+  //   rgb(69, 112, 161) 100%
+  // );
+  background-color: rgba(238, 238, 238, 0.63);
+  .main-auth-page {
+    min-height: calc(100vh);
+    display: flex;
+    align-items: center;
+  }
+}

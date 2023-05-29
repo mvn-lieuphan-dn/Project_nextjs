@@ -1,0 +1,36 @@
+.ant-form {
+  width: 500px;
+  margin: 0 auto;
+  padding: 50px 15px;
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  .title-form {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  .input-file {
+    cursor: pointer;
+    height: 100%;
+  }
+  .wrapper-avatar {
+    width: 200px;
+    margin: 0 auto;
+  }
+}
+.flex {
+  display: flex;
+}
+.flex-direction {
+  flex-direction: column-reverse;
+}
+.justify-content {
+  justify-content: center;
+}
+.text-center {
+  display: block;
+  text-align: center;
+}

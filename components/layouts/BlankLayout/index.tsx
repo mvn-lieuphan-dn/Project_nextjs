@@ -14,9 +14,9 @@ export default function BlankLayout({ children }: BlankLayoutProps) {
   const { isLogged } = useAuth();
   if (isLogged) router.push("/");
   return (
-    <div>
+    <div className="auth-page">
       <HeaderAuth />
-      <main className="container">{children}</main>
+      <main className="container main-auth-page">{children}</main>
     </div>
   );
 }

@@ -2,6 +2,8 @@ import { Users } from "./../model/Users.model";
 import { doc, setDoc, getDoc } from "firebase/firestore";
 import { database } from "./clientApp";
 
+import "firebase/storage";
+
 export const addData = async (values: Users, nameTable: string, id: string) => {
   await setDoc(doc(database, nameTable, id), values);
 };

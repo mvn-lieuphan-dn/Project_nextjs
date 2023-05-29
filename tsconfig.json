@@ -19,7 +19,7 @@
       "@app/*": ["./*"],
       "@layouts/*": ["components/layouts/*"],
       "@fb/*": ["fb/*"],
-      "@api/*": ["api/*"]
+      "@api/*": [""]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

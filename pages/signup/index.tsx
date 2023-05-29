@@ -1,10 +1,14 @@
-// import MainLayout from "@app/components/layouts/MainLayout";
 import { Users } from "@app/model/Users.model";
 import { Form, Radio, Input, Button } from "antd";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "fb/clientApp";
 import BlankLayout from "@layouts/BlankLayout";
 import { addData } from "@fb/connectFb";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { useState } from "react";
+import avatar from "../../assets/images/avatar.png";
+import Image from "next/image";
+import Link from "next/link";
 
 const position = [
   {
@@ -20,16 +24,25 @@ const position = [
 ];
 
 export default function SignupPage(): JSX.Element {
+  const [imageAvatar, setImageAvatar] = useState("");
+  console.log(imageAvatar);
+
   const handleSubmit = (values: Users) => {
+    console.log(values);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    // const router = useRouter();
     if (typeof window !== "undefined") {
       createUserWithEmailAndPassword(auth, values.username, values.password)
         .then((userCredential) => {
           console.log(userCredential);
-
           // Signed in
-          addData(values, "Account", userCredential.user.uid);
-
-          // ...
+          addData(
+            { ...values, avatar: imageAvatar },
+            "Account",
+            userCredential.user.uid
+          );
+          alert("submit ok!!!");
+          // router.push("/");
         })
         .catch((error) => {
           const errorCode = error;
@@ -38,6 +51,35 @@ export default function SignupPage(): JSX.Element {
           console.log("errorMessage", errorMessage);
           // ..
         });
+    }
+  };
+  const storage = getStorage();
+  const handleFileUpload = async (event: Event) => {
+    if (!event) {
+      return;
+    }
+
+    const inputElement = event.target as HTMLInputElement;
+    if (!inputElement.files || inputElement.files.length === 0) {
+      return;
+    }
+
+    const file = inputElement.files[0];
+    console.log(file);
+
+    try {
+      const storageRef = ref(storage, "profile/" + file.name);
+      await uploadBytes(storageRef, file);
+      console.log("File uploaded successfully.");
+      getDownloadURL(storageRef)
+        .then((url) => {
+          setImageAvatar(url);
+        })
+        .catch((error) => {
+          console.error("Error getting image URL:", error);
+        });
+    } catch (error) {
+      console.error("Error uploading file:", error);
     }
   };
 
@@ -51,9 +93,25 @@ export default function SignupPage(): JSX.Element {
         onFinish={handleSubmit}
         autoComplete="off"
       >
-        <h1>Signup</h1>
+        <h1 className="title-form">Signup</h1>
+        <Form.Item>
+          <div className="flex justify-content">
+            <div className="flex flex-direction wrapper-avatar">
+              <input
+                type="file"
+                className="input-file"
+                onChange={handleFileUpload}
+              />
+              {imageAvatar ? (
+                <img src={imageAvatar} className="img-avatar" alt="avatar" />
+              ) : (
+                <Image src={avatar} alt="ava" width={200} height={200} />
+              )}
+            </div>
+          </div>
+        </Form.Item>
         <Form.Item
-          label="username"
+          label="Username"
           name="username"
           rules={[
             {
@@ -77,7 +135,7 @@ export default function SignupPage(): JSX.Element {
           <Input.Password />
         </Form.Item>
         <Form.Item
-          label="position"
+          label="Position"
           name="position"
           rules={[
             {
@@ -98,6 +156,9 @@ export default function SignupPage(): JSX.Element {
             Submit
           </Button>
         </Form.Item>
+        <Link className="text-center" href="/login">
+          Move to login page!
+        </Link>
       </Form>
     </BlankLayout>
   );

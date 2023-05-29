@@ -23,9 +23,9 @@ export default function useAuth() {
     signInWithEmailAndPassword(auth, values.username, values.password)
       .then(async (user) => {
         const account = (await getDataById(user.user.uid, "Account")) as Users;
-        console.log(account);
         localStorage.setItem("user", JSON.stringify(account));
-        router.push("/admin");
+        const isAdmin = account?.position.includes("admin");
+        isAdmin ? router.push("/admin") : router.push("/");
       })
       .catch();
   };

@@ -1,6 +1,7 @@
 import MainLayout from "@app/components/layouts/MainLayout";
 import { Table } from "antd";
 import { getEmployees } from "@app/api/profile";
+import { Carousel } from "antd";
 export interface recordUser {
   id: string;
   name: string;
@@ -10,6 +11,13 @@ export interface recordUser {
 
 type EmployeeProps = {
   data: recordUser[];
+};
+const contentStyle: React.CSSProperties = {
+  height: "260px",
+  color: "#fff",
+  lineHeight: "260px",
+  textAlign: "center",
+  background: "#364d79",
 };
 
 export default function Home(data: EmployeeProps): JSX.Element {
@@ -44,6 +52,20 @@ export default function Home(data: EmployeeProps): JSX.Element {
 
   return (
     <MainLayout>
+      <Carousel autoplay dotPosition="bottom">
+        <div>
+          <h3 style={contentStyle}>1</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>2</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>3</h3>
+        </div>
+        <div>
+          <h3 style={contentStyle}>4</h3>
+        </div>
+      </Carousel>
       <Table
         columns={columns}
         key="tableEmployees"

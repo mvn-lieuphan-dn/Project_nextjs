@@ -1,33 +1,23 @@
 import { memo, ReactNode, useState } from "react";
 import Header from "./../MainLayout/header";
 import Footer from "./../MainLayout/footer";
-import useAuth from "@app/hooks/useAuth";
-import { useRouter } from "next/router";
 
-import { ROUTER } from "@app/constants/router";
 import { useEffect } from "react";
+import Loading from "@app/components/features/loading";
 type MainLayoutProps = {
   children: ReactNode;
 };
 
 function MainLayout({ children }: MainLayoutProps) {
   const [isloading, setIsLoading] = useState(true);
-  const { currentUser } = useAuth();
-  const router = useRouter();
-
-  const currentRouter = ROUTER.find((r) => r.path === router?.pathname);
 
   useEffect(() => {
-    if (!currentRouter?.permissions.includes(currentUser?.position)) {
+    setTimeout(() => {
       setIsLoading(false);
-      // router.push("/");
-    } else {
-      setIsLoading(false);
-    }
+    }, 2000);
   }, []);
 
-  if (isloading) return <div>Loading1...</div>;
-
+  if (isloading) return <Loading />;
   return (
     <div>
       <Header />
