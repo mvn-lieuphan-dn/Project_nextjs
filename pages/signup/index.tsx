@@ -5,7 +5,7 @@ import { auth } from "fb/clientApp";
 import BlankLayout from "@layouts/BlankLayout";
 import { addData } from "@fb/connectFb";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import avatar from "../../assets/images/avatar.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -54,7 +54,9 @@ export default function SignupPage(): JSX.Element {
     }
   };
   const storage = getStorage();
-  const handleFileUpload = async (event: Event) => {
+  const handleFileUpload = async (
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     if (!event) {
       return;
     }
@@ -100,7 +102,7 @@ export default function SignupPage(): JSX.Element {
               <input
                 type="file"
                 className="input-file"
-                onChange={() => handleFileUpload}
+                onChange={handleFileUpload}
               />
               {imageAvatar ? (
                 <img src={imageAvatar} className="img-avatar" alt="avatar" />
