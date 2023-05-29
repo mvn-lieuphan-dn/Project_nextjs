@@ -5,7 +5,9 @@ import { database } from "./clientApp";
 import "firebase/storage";
 
 export const addData = async (values: Users, nameTable: string, id: string) => {
-  await setDoc(doc(database, nameTable, id), values);
+  await setDoc(doc(database, nameTable, id), values).then(() => {
+    alert("submit ok!!!");
+  });
 };
 export const getDataById = async (
   id: string | undefined,

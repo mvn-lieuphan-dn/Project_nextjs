@@ -9,6 +9,7 @@ import { ChangeEvent, useState } from "react";
 import avatar from "../../assets/images/avatar.png";
 import Image from "next/image";
 import Link from "next/link";
+import { Image as Image1 } from "antd";
 
 const position = [
   {
@@ -38,10 +39,9 @@ export default function SignupPage(): JSX.Element {
           // Signed in
           addData(
             { ...values, avatar: imageAvatar },
-            "Account",
+            "Accounts",
             userCredential.user.uid
           );
-          alert("submit ok!!!");
           // router.push("/");
         })
         .catch((error) => {
@@ -54,9 +54,7 @@ export default function SignupPage(): JSX.Element {
     }
   };
   const storage = getStorage();
-  const handleFileUpload = async (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleFileUpload = (event: ChangeEvent<HTMLInputElement>) => {
     if (!event) {
       return;
     }
@@ -71,7 +69,7 @@ export default function SignupPage(): JSX.Element {
 
     try {
       const storageRef = ref(storage, "profile/" + file.name);
-      await uploadBytes(storageRef, file);
+      uploadBytes(storageRef, file);
       console.log("File uploaded successfully.");
       getDownloadURL(storageRef)
         .then((url) => {
@@ -105,7 +103,7 @@ export default function SignupPage(): JSX.Element {
                 onChange={handleFileUpload}
               />
               {imageAvatar ? (
-                <img src={imageAvatar} className="img-avatar" alt="avatar" />
+                <Image1 src={imageAvatar} className="img-avatar" alt="avatar" />
               ) : (
                 <Image src={avatar} alt="ava" width={200} height={200} />
               )}
