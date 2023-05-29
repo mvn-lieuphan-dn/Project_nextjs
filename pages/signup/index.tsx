@@ -100,7 +100,7 @@ export default function SignupPage(): JSX.Element {
               <input
                 type="file"
                 className="input-file"
-                onChange={handleFileUpload}
+                onChange={() => handleFileUpload}
               />
               {imageAvatar ? (
                 <img src={imageAvatar} className="img-avatar" alt="avatar" />
